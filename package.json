@@ -10,7 +10,6 @@
   "author": "Hugo Valencia <hvb1507@hotmail.com>",
   "license": "MIT",
   "dependencies": {
-    "pg": "^8.11.1",
     "axios": "^1.4.0",
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
@@ -18,6 +17,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
+    "pg": "^8.11.1",
     "sequelize": "^6.32.1",
     "vercel": "^31.0.3"
   },
