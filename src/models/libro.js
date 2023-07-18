@@ -9,5 +9,6 @@ module.exports = (sequelize) => {
   preciolibro: { type: DataTypes.INTEGER, allowNull: true,  },
   displibro: { type: DataTypes.INTEGER, allowNull: true,  },
   genero: { type: DataTypes.STRING, allowNull: true, },
+  esborrado: { type: DataTypes.INTEGER, allowNull: true, },
   });
 };
