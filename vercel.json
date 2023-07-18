@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "test",
+    "name": "bookstore",
     "builds": [
         {
             "src": "index.js",
