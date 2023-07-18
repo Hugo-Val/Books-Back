@@ -1,7 +1,7 @@
 {
     "name": "vercel-testing",
     "version": 2,
-    "description": "A basic Vercel project",
+
     "main": "index.js",
     "engines": {
         "node": "14.x"
