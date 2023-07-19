@@ -24,7 +24,7 @@ const agregaLibro = async (req, res) => {
    }
 
 
-   const nuevoLibro = await Libro.create({ idlibro, nombrelibro, desclibro, obslibro, fotolibro,
+   const nuevoLibro = await Libro.create({ idlibro, nombrelibro, desclibro, nombreautor, obslibro, fotolibro,
     preciolibro,  displibro, nombregenero,  esborrado  });
 
    res.status(201).json(nuevoLibro);

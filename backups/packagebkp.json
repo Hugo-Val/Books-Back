@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "start": "nodemon -L"
+    "start": "node index.js"
   },
   "repository": "https://github.com/Hugo-Val/Books-Back.git",
   "author": "Hugo Valencia <hvb1507@hotmail.com>",
