@@ -6,7 +6,6 @@ const { obtenerLibros } = require('../controllers/obtenerLibros.js');
 
 const router = Router();
 
-
 router.post('/agregaLibro',agregaLibro );
 router.get('/obtenerLibros', obtenerLibros);
 
