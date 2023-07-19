@@ -1,18 +1,15 @@
 const { Router } = require('express');
 
-// Import all the routers;
-// const exampleRouter = require('./example.js');
+const { agregaLibro } = require('../controllers/agregaLibro.js');
 
-const  getAll  = require('./GetAll.js');
-
+const { obtenerLibros } = require('../controllers/obtenerLibros.js');
 
 const router = Router();
 
-// Configure router;
 
-// router.use('/example', exampleRouter);
+router.post('/agregaLibro',agregaLibro );
+router.get('/obtenerLibros', obtenerLibros);
 
-router.use(getAll);
-
+router.get('/', (req, res) => { res.send('¡Bienvenido a la API!');});
 
 module.exports = router;
