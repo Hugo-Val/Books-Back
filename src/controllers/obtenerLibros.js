@@ -3,7 +3,7 @@ const { Libro, Genero} = require('../db.js');
 async function obtenerLibros(req, res) {
  const { pagina, limite } = req.query;
  const numPagina = parseInt(pagina) || 1;
- const limitePagina = parseInt(limite) || 8;
+ const limitePagina = parseInt(limite) || 2;
  const offset = (numPagina - 1) * limitePagina;
 
  try {
