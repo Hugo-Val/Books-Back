@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
   fotolibro: { type: DataTypes.STRING, allowNull: true, },
   preciolibro: { type: DataTypes.INTEGER, allowNull: true,  },
   displibro: { type: DataTypes.INTEGER, allowNull: true,  },
-  genero: { type: DataTypes.STRING, allowNull: true, },
+  nombregenero: { type: DataTypes.STRING, allowNull: true, },
   esborrado: { type: DataTypes.INTEGER, allowNull: true, },
   });
 };
