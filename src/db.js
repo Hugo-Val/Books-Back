@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME} = process.env;
 
 const sequelize = new Sequelize(
     `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
@@ -36,9 +36,11 @@ let capsEntries = entries.map(entry => [entry[0][0].toUpperCase() + entry[0].sli
 sequelize.models = Object.fromEntries(capsEntries);
 
 // Create the relationships between the models
-const { One, Two , libro, genero } = sequelize.models;
-One.belongsToMany(Two, { through: "one_two" });
-Two.belongsToMany(One, { through: "one_two" });
+const { libro, genero, Usuario, TipoUsuario } = sequelize.models;
+console.log(sequelize.models);
+
+TipoUsuario.hasMany(Usuario)
+Usuario.belongsTo(TipoUsuario)
 
 module.exports = {
     ...sequelize.models, // Export the models 

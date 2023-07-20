@@ -1,8 +1,8 @@
 const { Router } = require('express');
 
-const { agregaLibro } = require('../controllers/agregaLibro.js');
+const { agregaLibro } = require('../controllers/libro/agregaLibro.js');
 
-const { obtenerLibros } = require('../controllers/obtenerLibros.js');
+const { obtenerLibros } = require('../controllers/libro/obtenerLibros.js');
 
 const router = Router();
 

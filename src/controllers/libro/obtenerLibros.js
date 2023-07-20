@@ -1,4 +1,4 @@
-const { Libro, Genero} = require('../db.js');
+const { Libro, Genero} = require('../../db.js');
 
 async function obtenerLibros(req, res) {
  const { pagina, limite } = req.query;

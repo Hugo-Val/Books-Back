@@ -1,4 +1,4 @@
-const { Libro, Genero } = require('../db.js');
+const { Libro, Genero } = require('../../db');
 const agregaLibro = async (req, res) => {
  try {
    const { idlibro, nombrelibro, desclibro, obslibro, fotolibro, preciolibro, displibro, nombregenero, esborrado } = req.body;

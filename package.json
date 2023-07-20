@@ -19,6 +19,7 @@
     "morgan": "^1.10.0",
     "pg": "^8.11.1",
     "sequelize": "^6.32.1",
+    "uuid": "^9.0.0",
     "vercel": "^31.0.3"
   },
   "devDependencies": {
