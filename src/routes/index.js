@@ -4,10 +4,13 @@ const { agregaLibro } = require('../controllers/agregaLibro.js');
 
 const { obtenerLibros } = require('../controllers/obtenerLibrosx.js');
 
+const { obtenerLibroPorId } = require('../controllers/obtenerLibroPorId.js');
+
 const router = Router();
 
 router.post('/agregaLibro',agregaLibro );
 router.get('/obtenerLibros', obtenerLibros);
+router.get("/obtenerLibroId/:idl", obtenerLibroPorId); 
 
 router.get('/', (req, res) => { res.send('¡Bienvenido a la API!');});
 
