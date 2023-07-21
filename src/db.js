@@ -37,7 +37,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // Create the relationships between the models
 const { libro, genero, Usuario, TipoUsuario } = sequelize.models;
-console.log(sequelize.models);
+// console.log(sequelize.models);
 
 TipoUsuario.hasMany(Usuario)
 Usuario.belongsTo(TipoUsuario)

@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
     name: { type: DataTypes.STRING,  allowNull: true  },
     nickname: {  type: DataTypes.STRING,  allowNull: true  },
     picture: {   type: DataTypes.STRING,  allowNull: true  },
-    sub: { type: DataTypes.STRING, allowNull: true,  unique: true  },
+    // sub: { type: DataTypes.STRING, allowNull: true,  unique: true  },
     password: {  type: DataTypes.STRING, allowNull: true  },
     // rol: { type: DataTypes.INTEGER, allowNull: true, validate: {  isIn: [[1, 2]], }, },
     isBan: { type: DataTypes.BOOLEAN, defaultValue: true   },
