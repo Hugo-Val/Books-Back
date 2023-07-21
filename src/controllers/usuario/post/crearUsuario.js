@@ -1,18 +1,18 @@
-const { Usuario } = require("../../../models/usuario")
-const { TipoUsuarios } = require("../../../models/tipoUsuario")
+const { Usuario } = require("../../../db");
+const { TipoUsuario } = require("../../../db");
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const { getUsuarioPorEmail } = require("../get/getUsuarioPorEmail");
 const { getUsuarioPorId } = require("../get/getUsuarioPorId");
 
 
-const postCrearUsuario = async (name, password, email, nickname, picture, tipo) => {
+const postCrearUsuario = async (name, password, email, nickname, picture, rol) => {
     if (!name || name === "") throw new Error("El usuario debe tener un nombre");
     if (!password || password === "") throw new Error("El usuario debe tener una contraseña");
     if (!email || email === "") throw new Error("El usuario debe tener un correo electrónico");
     if (!nickname || nickname === "") throw new Error("El usuario debe tener un nickname");
     if (!picture || picture === "") throw new Error("El usuario debe tener una foto");
-    if (!tipo || tipo === "") throw new Error("El usuario debe tener un tipo");
+    if (!rol || rol === "") throw new Error("El usuario debe tener un rol");
 
     const usuarioYaListado = await getUsuarioPorEmail(email);
 
@@ -28,20 +28,20 @@ const postCrearUsuario = async (name, password, email, nickname, picture, tipo) 
         email,
         nickname,
         picture,
-        rol,
         // totalReviews: 0.0
     });
 
     // Vinculación con el tipo de usuario (userType)
-    const tipoUsuario = await TipoUsuarios.findOne({ where: { rol: tipo } });
+    console.log(TipoUsuario)
+    const tipoUsuario = await TipoUsuario.findOne({ where: { rol: rol } });
     if (tipoUsuario) {
-        console.log("----->tipo", tipoUsuario.tipo);
-        await usuario.setTipoUsuarios(tipoUsuario);
+        console.log("----->rol: ", tipoUsuario.rol);
+        await usuario.setTipoUsuario(tipoUsuario);
         let usuarioFinal = await usuario.save();
-        sendEmail(usuarioFinal.email);
+       // sendEmail(usuarioFinal.email);
         console.log("final:", usuarioFinal);
 
-        let formatoDeUsuario = await getUsuarioPorId(usuarioFinal.id);
+        let formatoDeUsuario = await getUsuarioPorId(usuarioFinal.idusuario);
 
         if (formatoDeUsuario) { // Verificación de que el usuario se creó correctamente
             return formatoDeUsuario;
@@ -50,7 +50,8 @@ const postCrearUsuario = async (name, password, email, nickname, picture, tipo) 
         }
 
     } else {
-        throw new Error("El tipo proporcionado no es válido, debe ser admin, cliente u organización")
+        await Usuario.destroy({ where: { idusuario: usuario.idusuario } });
+        throw new Error("El tipo proporcionado no es válido, debe ser admin o usuario")
     }
 };
 

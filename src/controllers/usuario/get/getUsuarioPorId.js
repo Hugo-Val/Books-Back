@@ -1,5 +1,5 @@
-const { Usuario } = require("../../../models/usuario");
-const { TipoUsuarios } = require("../../../models/tipoUsuario");
+const { Usuario } = require("../../../db");
+const { TipoUsuario } = require("../../../db");
 
 const getUsuarioPorId = async (idusuario) => {
   const usuario = await Usuario.findOne({
@@ -7,7 +7,7 @@ const getUsuarioPorId = async (idusuario) => {
     attributes: { exclude: ['password'] }, // Excluyo que aparezca la contraseña del usuario por ser confidencial
     include: [
       {
-        model: TipoUsuarios,
+        model: TipoUsuario,
         attributes: ["rol"]
       }
     ]

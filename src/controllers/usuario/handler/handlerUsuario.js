@@ -43,14 +43,13 @@ const handleUsuarioPorEmail = async (req, res) => {
 const handleCrearUsuario = async (req, res) => {
   try {
     const { body } = req;
-    console.log(req);
     const response = await postCrearUsuario(
       body?.name,
       body?.password,
       body?.email,
       body?.nickname,
       body?.picture,
-      body?.tipo,
+      body?.rol,
     );
     res.status(200).json(response);
   } catch (error) {

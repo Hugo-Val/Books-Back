@@ -1,12 +1,12 @@
-const { Usuario } = require("../../../models/usuario");
-const { TipoUsuarios } = require("../../../models/tipoUsuario");
-
+const { Usuario } = require("../../../db");
+const { TipoUsuario } = require("../../../db");
 const getUsuarioPorEmail = async (email) => {
+  console.log(Usuario)
   const usuario = await Usuario.findOne({
     where: { email },
     include: [
       {
-        model: TipoUsuarios,
+        model: TipoUsuario,
         attributes: ["rol"]
       }
     ]
